@@ -2,6 +2,7 @@ package com.example.databasesample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -53,6 +54,19 @@ public class MainActivity extends AppCompatActivity {
     public void onSaveButtonClick(View view){
         // 感想欄を取得
         EditText etNote = findViewById(R.id.etNote);
+        String note = etNote.getText().toString();
+
+        // データベースヘルパーオブジェクトを作成。
+        DatabaseHelper helper = new DatabaseHelper(MainActivity.this);
+        // データベースヘルパーオブジェクトからデータベース接続オブジェクトを取得。
+        SQLiteDatabase db = helper.getWritableDatabase();
+
+        try{
+
+        }
+        finally {
+
+        }
         // カクテル名を「未選択」に変更。
         _tvCocktailName.setText(getString(R.string.tv_name));
         // 感想欄の入力値を消去。
